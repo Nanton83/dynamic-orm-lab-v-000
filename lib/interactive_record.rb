@@ -59,13 +59,13 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(any)
+  def self.find_by(attribute)
     sql = <<-SQL
     SELECT *
     FROM #{self.table_name}
-    WHERE any == "#{values_for_insert}"
+    WHERE #{attribute.keys.first} = ?
     SQL
-    DB[:conn].execute(sql)
+    DB[:conn].execute(sql, any.values.first)
   end
 
 end
