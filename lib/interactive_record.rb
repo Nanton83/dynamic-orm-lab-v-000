@@ -56,6 +56,7 @@ class InteractiveRecord
     FROM #{self.table_name}
     WHERE name = "#{name}"
     SQL
+    DB[:conn].execute(sql)
   end
 
 end
