@@ -65,7 +65,7 @@ class InteractiveRecord
     FROM #{self.table_name}
     WHERE #{attribute.keys.first} = ?
     SQL
-    DB[:conn].execute(sql, any.values.first)
+    DB[:conn].execute(sql, attribute.values.first)
   end
 
 end
