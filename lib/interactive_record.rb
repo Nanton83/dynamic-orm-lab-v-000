@@ -63,7 +63,7 @@ class InteractiveRecord
     sql = <<-SQL
     SELECT *
     FROM #{self.table_name}
-    WHERE any == #{values_for_insert}
+    WHERE any == "#{values_for_insert}"
     SQL
     DB[:conn].execute(sql)
   end
