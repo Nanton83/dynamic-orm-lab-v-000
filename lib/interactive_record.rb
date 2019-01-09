@@ -60,6 +60,12 @@ class InteractiveRecord
   end
 
   def self.find_by(any)
+    sql = <<-SQL
+    SELECT *
+    FROM #{self.table_name}
+    WHERE any == #{values_for_insert}
+    SQL
+    DB[:conn].execute(sql)
   end
 
 end
